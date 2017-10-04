@@ -189,18 +189,19 @@ CREATE VIEW year1019 AS(
 DROP VIEW IF EXISTS collaborators CASCADE;
 DROP VIEW IF EXISTS  CASCADE;
 
-CREATE VIEW collaborators AS(
-    SELECT  DISTINCT a.aid, b.aid
-    FROM    authored a, authored b
-    WHERE   NOT a.aid = b.aid and a.pub_id = b.pub_id
-);
-
 CREATE VIEW data_containing_data AS (
     SELECT  pub_id
     FROM    publication
     WHERE   (pub_type = inprogression OR pub_type = article) AND
             title LIKE '%Data'
 )
+
+CREATE VIEW collaborators AS(
+    SELECT  DISTINCT a.aid, b.aid
+    FROM    authored a, authored b, data_containing_data
+    WHERE   NOT a.aid = b.aid AND 
+            a.pub_id = b.pub_id = data_containing_data.pub_id)
+);
 
 SELECT      a.aid
 FROM        collaborators 
