@@ -3,9 +3,9 @@
 ## Query 1
 
 ```sql
-SELECT      publication_type, COUNT(*) as Total
+SELECT      publication_type, COUNT(*) AS Total
 FROM        publication 
-WHERE       pub_year < 2018 and pub_year > 1999
+WHERE       pub_year < 2018 AND pub_year > 1999
 GROUP BY    publication_type
 ```
 
@@ -16,10 +16,11 @@ SELECT      DISTINCT conf_name
 FROM        (
             SELECT      conf_name, pub_year
             FROM        publication
-            WHERE       publication_type = inprogression           and publication_month = 7
+            WHERE       publication_type = inproceedings AND 
+                        publication_month = 7
             GROUP BY    conf_name, pub_year
             )
-WHERE       COUNT(conf_name) > 200
+WHERE       COUNT(DISTINCT conf_name) > 200
 GROUP BY    pub_year
 ```
 
@@ -187,20 +188,21 @@ CREATE VIEW year1019 AS(
 
 ```sql
 DROP VIEW IF EXISTS collaborators CASCADE;
-DROP VIEW IF EXISTS  CASCADE;
+DROP VIEW IF EXISTS title_containing_data CASCADE;
 
 CREATE VIEW data_containing_data AS (
     SELECT  pub_id
     FROM    publication
-    WHERE   (pub_type = inprogression OR pub_type = article) AND
-            title LIKE '%Data'
+    WHERE   (pub_type = inproceeding OR pub_type = article) AND
+            title LIKE '%Data%'
 )
 
 CREATE VIEW collaborators AS(
     SELECT  DISTINCT a.aid, b.aid
-    FROM    authored a, authored b, data_containing_data
+    FROM    authored a, authored b, title_containing_data
     WHERE   NOT a.aid = b.aid AND 
-            a.pub_id = b.pub_id = data_containing_data.pub_id)
+            a.pub_id = b.pub_id AND
+            a.pub.id = title_containing_data.pub_id)
 );
 
 SELECT      a.aid
@@ -212,11 +214,46 @@ GROUP BY    a.aid
 ## Query 7
 
 ```sql
+DROP VIEW IF EXISTS title_containing_data CASCADE;
+DROP VIEW IF EXISTS author_list CASCADE;
+
+CREATE VIEW title_containing_data AS (
+    SELECT  pub_id
+    FROM    publication
+    WHERE   (pub_type = inproceeding OR pub_type = article) AND
+            title LIKE '%Data%' AND
+            year > 2011
+)
+
+CREATE VIEW author_list AS (
+    SELECT      author.author_name, count(author.aid) as count
+    FROM        title_containing_data, authored, author
+    WHERE       authored.pid = title_containing_data.pid AND   
+                authored.aid = author.aid
+    ORDER BY    count DESC
+)
+
+SELECT      DISTINCT top 10 
+FROM        author_list
 ```
 
 ## Query 8
 
 ```sql
+DROP VIEW IF EXISTS inproceeding_6_year CASCADE;
+
+CREATE VIEW inproceeding_6_year AS (
+SELECT      pub_name, year 
+FROM        publication
+WHERE       pub_type = inproceeding AND
+            m_date = 6
+GROUP BY    year
+)
+
+SELECT      pub_name 
+FROM        inproceeding_6_year
+WHERE       count(DISTINCT pub_name) > 100
+GROUP BY    
 ```
 
 ## Query 9
