@@ -3,6 +3,7 @@ Start script that will parse xml file and store it in csv
 """
 
 import logging
+import json
 
 from xml_parser.parser import parse_file
 from tag_processor.processor import process_tag
@@ -19,14 +20,19 @@ def init_logger(log_file):
 
 def main():
     """ Main function to parse xml file """
-    init_logger("data/parser.log")
+    with open("config.json", "r") as conf_file:
+        conf = json.load(conf_file)
+    
+    init_logger(conf["log"]["log_path"])
     logging.info("Start processing")
 
-    db = DBClient("localhost", "postgres", "postgres", "admin")
+    db_conf = conf["db"]
+    db = DBClient(db_conf["host"], db_conf["database"], db_conf["username"], db_conf["password"])
 
     count = 0
     err_count = 0
-    for tag in parse_file("data/dblp.xml", 2, 'dblp'):
+    xml_conf = conf["xml"]
+    for tag in parse_file(xml_conf["xml_path"], xml_conf["header_line"], xml_conf["root_tag"]):
         try:
             info = process_tag(tag)
             db.insert_pub(info)
