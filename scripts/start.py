@@ -40,7 +40,7 @@ def main():
             if count % 100 == 0:
                 print("Publication count: ", count)
                 print("Error count: ", err_count)
-                break
+                
             # logging.info("tag: %s", tag)
         except Exception as e:
             err_count += 1
