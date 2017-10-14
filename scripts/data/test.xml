@@ -1,28 +1,68 @@
 <dblp>
-	<inproceedings key="conf/siggraph/NozawaFM17" mdate="2017-08-16">
-		<author>Naoki Nozawa</author>
-		<author>Tsukasa Fukusato</author>
-		<author>Shigeo Morishima</author>
-		<title>3D model partial-resizing via normal and texture map combination.</title>
-		<pages>1:1-1:2</pages>
-		<year>2017</year>
-		<booktitle>SIGGRAPH Posters</booktitle>
-		<ee>http://doi.acm.org/10.1145/3102163.3102203</ee>
-		<crossref>conf/siggraph/2017posters</crossref>
-		<url>db/conf/siggraph/siggraph2017posters.html#NozawaFM17</url>
-	</inproceedings>
-	<incollection key="reference/gis/0001HKCT17" publtype="encyclopedia" mdate="2017-07-12">
-		<author>Feifei Li 0001</author>
-		<author>Marios Hadjieleftheriou</author>
-		<author>George Kollios</author>
-		<author>Dihan Cheng</author>
-		<author>Shang-Hua Teng</author>
-		<title>Trip Planning Queries in Road Network Databases.</title>
-		<pages>2338-2343</pages>
-		<year>2017</year>
-		<booktitle>Encyclopedia of GIS</booktitle>
-		<ee>https://doi.org/10.1007/978-3-319-17885-1_1416</ee>
-		<crossref>reference/gis/2017</crossref>
-		<url>db/reference/gis/gis2017.html#0001HKCT17</url>
-	</incollection>
+<inproceedings key="conf/siggraph/NozawaFM17" mdate="2017-08-16">
+<author>Naoki Nozawa</author>
+<author>Tsukasa Fukusato</author>
+<author>Shigeo Morishima</author>
+<title>3D model partial-resizing via normal and texture map combination.</title>
+<pages>1:1-1:2</pages>
+<year>2017</year>
+<booktitle>SIGGRAPH Posters</booktitle>
+<ee>http://doi.acm.org/10.1145/3102163.3102203</ee>
+<crossref>conf/siggraph/2017posters</crossref>
+<url>db/conf/siggraph/siggraph2017posters.html#NozawaFM17</url>
+</inproceedings>
+<incollection key="reference/gis/0001HKCT17" publtype="encyclopedia" mdate="2017-07-12">
+<author>Feifei Li 0001</author>
+<author>Marios Hadjieleftheriou</author>
+<author>George Kollios</author>
+<author>Dihan Cheng</author>
+<author>Shang-Hua Teng</author>
+<title>Trip Planning Queries in Road Network Databases.</title>
+<pages>2338-2343</pages>
+<year>2017</year>
+<booktitle>Encyclopedia of GIS</booktitle>
+<ee>https://doi.org/10.1007/978-3-319-17885-1_1416</ee>
+<crossref>reference/gis/2017</crossref>
+<url>db/reference/gis/gis2017.html#0001HKCT17</url>
+</incollection>
+<proceedings key="conf/siggraph/2017posters" mdate="2017-08-16">
+<title>
+Special Interest Group on Computer Graphics and Interactive Techniques Conference, SIGGRAPH '17, Los Angeles, CA, USA, July 30 - August 03, 2017, Posters Proceedings.
+</title>
+<booktitle>SIGGRAPH Posters</booktitle>
+<publisher>ACM</publisher>
+<year>2017</year>
+<isbn>978-1-4503-5015-0</isbn>
+<ee>http://doi.acm.org/10.1145/3102163</ee>
+<url>db/conf/siggraph/siggraph2017posters.html</url>
+</proceedings>
+<article key="journals/ker/VrancxHK16" mdate="2017-06-14">
+<author>Peter Vrancx</author>
+<author orcid="0000-0003-2687-4630">Enda Howley</author>
+<author>Matt Knudson</author>
+<title>
+Preface to the special issue: adaptive learning agents.
+</title>
+<pages>1-2</pages>
+<year>2016</year>
+<volume>31</volume>
+<journal>Knowledge Eng. Review</journal>
+<number>1</number>
+<ee>https://doi.org/10.1017/S0269888915000144</ee>
+<url>db/journals/ker/ker31.html#VrancxHK16</url>
+</article>
+<book key="series/csm/HoogendoornF18" mdate="2017-10-05">
+<author>Mark Hoogendoorn</author>
+<author>Burkhardt Funk</author>
+<title>
+Machine Learning for the Quantified Self - On the Art of Learning from Sensory Data
+</title>
+<publisher>Springer</publisher>
+<year>2018</year>
+<pages>1-221</pages>
+<series href="db/series/csm/index.html">Cognitive Systems Monographs</series>
+<volume>35</volume>
+<isbn>978-3-319-66307-4</isbn>
+<ee>https://doi.org/10.1007/978-3-319-66308-1</ee>
+</book>
 </dblp>

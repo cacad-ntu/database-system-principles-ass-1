@@ -36,9 +36,12 @@ def parse_file(file_path, header_line_count, root):
                     cur_tag = ""
                     continue
 
-            tag_buffer += line
-
-            if line == utils.get_closing(cur_tag):
+            if line.startswith(utils.get_closing(cur_tag)):
+                tag_buffer += line[:len(utils.get_closing(cur_tag))]
                 yield tag_buffer
+                tag_buffer = line[len(utils.get_closing(cur_tag)):]
                 cur_tag = ""
-                tag_buffer = ""
+                if tag_buffer != "":
+                    cur_tag = utils.get_tag(tag_buffer)
+            else:
+                tag_buffer += line
