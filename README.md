@@ -14,8 +14,8 @@ CZ4031 - Database Assignment 1: Querying Databases Efficiently
 - Install [requirement](requirements.txt) for python library (`pip install -r requirement.txt`)
 - Download [dblp.xml](http://dblp.uni-trier.de/xml/) and place it under `scripts/data/`
 - [Drop](queries/drop_tables.sql) and [Create](queries/create_tables.sql) tables for publications
-- Change [setting](scripts/config.json) for xml parser
-- Move to `scripts/`, and run `python start.py`.
+- Change [setting](scripts/configs) for xml parser
+- Move to `scripts/`, and run `python start.py [path/to/config_file.json]`.
 
 ## Content
 
@@ -29,7 +29,7 @@ Contain an xml parser that used to parse [dblp.xml](http://dblp.uni-trier.de/xml
 
 Contain the queries that needed for the assignment. Including:
 
-- [Drop](queries/drop_tables.sql) and [Create](queries/create_tables.sql) tables
+- Queries to [create tables](queries/create_tables.sql) 
 - Queries to answer question from assignment
 - Queries to create index (for optimization)
 
