@@ -10,7 +10,7 @@ from tag_processor.entity import ENTITY
 
 def process_tag(tag):
     """ Process xml tag """
-    logging.info("Processing tag %s", utils.get_tag(tag))
+    # logging.info("Processing tag %s", utils.get_tag(tag))
     header = ENTITY.format(utils.get_tag(tag))
     tag_root = ET.fromstring(header + tag)
 

@@ -1,3 +1,12 @@
+DROP TABLE author;
+DROP TABLE pub_auth;
+DROP TABLE publication;
+DROP TABLE article;
+DROP TABLE book;
+DROP TABLE incollection;
+DROP TABLE proceedings;
+DROP TABLE inproceedings;
+
 CREATE TABLE author(
     name VARCHAR(500) PRIMARY KEY,
     last_name VARCHAR(100)
@@ -14,7 +23,7 @@ CREATE TABLE publication(
     pub_class VARCHAR(100),
     pub_type VARCHAR(100),
     title_abbrev VARCHAR(100),
-    title VARCHAR(500),
+    title VARCHAR(1000),
     year INTEGER,
     month INTEGER
 );

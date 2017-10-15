@@ -43,11 +43,13 @@ class DBClient:
 
         insert_cols = []
         insert_values = []
-        for col in MORE_COLS[info["pub_class"]]:
-            if col in info:
-                insert_cols.append(col)
-                insert_values.append(info[col])
-        self.insert_row(info["pub_class"], insert_cols, insert_values, "pub_key")
+
+        if info["pub_class"] in MORE_COLS:
+            for col in MORE_COLS[info["pub_class"]]:
+                if col in info:
+                    insert_cols.append(col)
+                    insert_values.append(info[col])
+            self.insert_row(info["pub_class"], insert_cols, insert_values, "pub_key")
 
         self.commit()
 
