@@ -1,0 +1,17 @@
+{
+    "log":{
+        "log_path": "data/parser_test.log"
+    },
+    "xml":{
+        "xml_path": "data/test.xml",
+        "root_tag": "dblp",
+        "header_line": 0,
+        "skip_mod": 1
+    },
+    "db":{
+        "host":"localhost",
+        "database": "postgres_test",
+        "username": "postgres",
+        "password": "admin"
+    }
+}
