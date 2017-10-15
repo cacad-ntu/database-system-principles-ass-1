@@ -12,20 +12,19 @@ import psycopg2
 
 # Parameter
 HOST = "localhost"
-DBNAME = "postgres_test"
 USERNAME = "postgres"
 PASSWORD = "admin"
 
 def main(argv):
     """ main function to execute queries"""   
-    if len(argv) == 1:
-        print("ErrorNotEnoughArgument: Please input SQL file path!")
+    if len(argv) < 2:
+        print("ErrorNotEnoughArgument: Please input SQL file path and dbname!")
         return
 
     with open(argv[1], "r") as query_file:
         query_str = query_file.read()
 
-    conn_string = "host='%s' dbname='%s' user='%s' password='%s'"%(HOST, DBNAME, USERNAME, PASSWORD)
+    conn_string = "host='%s' dbname='%s' user='%s' password='%s'"%(HOST, argv[2], USERNAME, PASSWORD)
     conn = psycopg2.connect(conn_string)
     cursor = conn.cursor()
 
