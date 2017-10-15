@@ -35,6 +35,7 @@ def main(argv):
     db = DBClient(db_conf["host"], db_conf["database"], db_conf["username"], db_conf["password"])
 
     count = 0
+    pub_count = 0
     err_count = 0
     xml_conf = conf["xml"]
     skip_mod = xml_conf["skip_mod"]
@@ -43,13 +44,14 @@ def main(argv):
             if count%skip_mod == 0:
                 info = process_tag(tag)
                 db.insert_pub(info)
-                count += 1
-                if count % 100 == 0:
-                    print("Publication count: ", count)
+                pub_count += 1
+                if pub_count % 100 == 0:
+                    print("Publication count: ", pub_count)
                     print("Error count: ", err_count)
                     logging.info("tag: %s", tag)
-            else:
-                count += 1
+                           
+            count += 1
+            
                 
         except Exception as e:
             err_count += 1
