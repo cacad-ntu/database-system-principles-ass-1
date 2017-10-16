@@ -1,11 +1,11 @@
-DROP TABLE author;
-DROP TABLE pub_auth;
-DROP TABLE publication;
-DROP TABLE article;
-DROP TABLE book;
-DROP TABLE incollection;
-DROP TABLE proceedings;
-DROP TABLE inproceedings;
+DROP TABLE IF EXISTS author;
+DROP TABLE IF EXISTS pub_auth;
+DROP TABLE IF EXISTS publication;
+DROP TABLE IF EXISTS article;
+DROP TABLE IF EXISTS book;
+DROP TABLE IF EXISTS incollection;
+DROP TABLE IF EXISTS proceedings;
+DROP TABLE IF EXISTS inproceedings;
 
 CREATE TABLE author(
     name VARCHAR(500) PRIMARY KEY,
