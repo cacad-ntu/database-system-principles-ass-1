@@ -31,9 +31,6 @@ def main(argv):
     start_time = time.time()
     cursor.execute(query_str)
     exec_time = time.time() - start_time
-
-    print("Execute: ", argv[1])
-    print("Time elapsed: ", exec_time)
     
     res = cursor.fetchall()
     result_file_name = datetime.now().strftime("result_%Y_%m_%d_%H_%M_%S.json")
@@ -44,6 +41,9 @@ def main(argv):
     for item in res:
         res_tables.add_row(item)
     print(res_tables)
+
+    print("Execute: ", argv[1])
+    print("Time elapsed: ", exec_time)
     
 if __name__ == '__main__':
     main(sys.argv)
