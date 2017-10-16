@@ -3,7 +3,7 @@ DROP VIEW IF EXISTS collaborators;
 CREATE VIEW collaborators AS(
     SELECT  a.author as author, count(a.author) as cnt
     FROM    pub_auth a, pub_auth b
-    WHERE   NOT a.author = b.author AND 
+    WHERE   a.author <> b.author AND 
             a.pub_key = b.pub_key AND
             a.pub_key IN (
                 SELECT  pub_key
